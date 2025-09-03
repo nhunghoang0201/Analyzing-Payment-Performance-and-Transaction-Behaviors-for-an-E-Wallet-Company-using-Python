@@ -1,5 +1,3 @@
-<img width="1778" height="743" alt="image" src="https://github.com/user-attachments/assets/c74fcdd8-35b1-416c-82e8-4f0f6532abae" /># E-Wallet
-
 # 📊 Project Title: [Your Project Name]  
 Author: Hoang Thi Hong Nhung 
 Date: 2025-09-03  
