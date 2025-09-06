@@ -25,7 +25,9 @@ Analyze e-wallet payment & transaction datasets to answer:
 #### 👤 Who is this project for?
 
 ✔️ Data Analysts & BI specialists in fintech/e-wallet companies
+
 ✔️ Payment operations & product teams
+
 ✔️ Decision-makers designing customer experience & fraud detection initiatives
 
 ## 📂 Dataset Description & Data Structure  
