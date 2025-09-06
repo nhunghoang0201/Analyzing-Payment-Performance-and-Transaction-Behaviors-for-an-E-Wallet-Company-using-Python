@@ -14,13 +14,13 @@ Tools Used: Python
 #### 🎯 Objective
 Analyze e-wallet payment & transaction datasets to answer:
 
-What is the current situation of payment volume and transactions?
+✔️ What is the current situation of payment volume and transactions?
 
-Which products/teams perform best and worst?
+✔️ Which products/teams perform best and worst?
 
-How are refunds distributed by sources?
+✔️ How are refunds distributed by sources?
 
-How do different transaction types contribute to customer behavior?
+✔️ How do different transaction types contribute to customer behavior?
 
 #### 👤 Who is this project for?
 
