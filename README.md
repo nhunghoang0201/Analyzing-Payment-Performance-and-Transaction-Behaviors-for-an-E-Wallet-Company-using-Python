@@ -1,4 +1,4 @@
-# 📊 Project Title: E-Wallet  
+# 📊 Analyzing Payment Performance and Transaction Behaviors for an E-Wallet Company using Python  
 Author: Hoang Thi Hong Nhung 
 Date: 2025-09-03  
 Tools Used: Python
