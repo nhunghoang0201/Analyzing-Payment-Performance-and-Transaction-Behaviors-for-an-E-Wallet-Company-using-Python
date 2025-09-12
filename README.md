@@ -43,6 +43,7 @@ transactions.csv → Transaction-level information (transType, merchant, amount,
 | product\_id | INT       | Unique identifier for each product   |
 | category    | TEXT      | Product category (e.g., PXXXXXB)     |
 | team\_own   | TEXT      | The team responsible for the product |
+
 Example:
 | product\_id | category | team\_own |
 | ----------- | -------- | --------- |
@@ -58,6 +59,7 @@ Payment Report Table
 | product\_id    | INT       | Reference to product\_id in Product Table |
 | source\_id     | INT       | Source identifier of payment              |
 | volume         | FLOAT     | Total payment volume                      |
+
 Example
 | report\_month | payment\_group | product\_id | source\_id | volume    |
 | ------------- | -------------- | ----------- | ---------- | --------- |
@@ -76,6 +78,7 @@ Example
 | receiver\_id    | FLOAT     | Receiver’s customer ID              |
 | extra\_info     | TEXT      | Additional metadata                 |
 | timeStamp       | BIGINT    | Unix timestamp of transaction       |
+
 Example:
 | transaction\_id | merchant\_id | volume | transType | transStatus | sender\_id | receiver\_id | timeStamp     |
 | --------------- | ------------ | ------ | --------- | ----------- | ---------- | ------------ | ------------- |
