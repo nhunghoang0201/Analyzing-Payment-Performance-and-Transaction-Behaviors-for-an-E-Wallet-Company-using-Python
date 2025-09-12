@@ -1,6 +1,5 @@
 # 📊 Analyzing Payment Performance and Transaction Behaviors for an E-Wallet Company using Python  
-<img width="670" height="377" alt="image" src="https://github.com/user-attachments/assets/013f0847-1125-41d9-8529-8086ce304082" />
-
+![Image](https://github.com/user-attachments/assets/0d4a7fd2-2793-4939-b0ec-40ddf311121f)
 
 Author: Hoang Thi Hong Nhung 
 Date: 2025-09-03  
