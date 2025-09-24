@@ -41,20 +41,27 @@ transactions.csv → Transaction-level information (transType, merchant, amount,
 
 #### Data definition & example
 ##### Table 1: Payment_report
+<details>
+  <summary>Payment_report</summary>
 | Column Name | Data Type | Description                          |
 | ----------- | --------- | ------------------------------------ |
 | product\_id | INT       | Unique identifier for each product   |
 | category    | TEXT      | Product category (e.g., PXXXXXB)     |
 | team\_own   | TEXT      | The team responsible for the product |
-
-Example:
+<details>
+<details>
+  <summary>Example:</summary>
+  
 | product\_id | category | team\_own |
 | ----------- | -------- | --------- |
 | 17          | PXXXXXB  | ASD       |
 | 18          | PXXXXXB  | ASD       |
 | 20          | PXXXXXB  | ASD       |
+<details>
+  
 ##### Table 2: Payment Report Table
-Payment Report Table
+<details>
+  <summary>Payment Report Table</summary>
 | Column Name    | Data Type | Description                               |
 | -------------- | --------- | ----------------------------------------- |
 | report\_month  | DATE      | Month of report (YYYY-MM)                 |
@@ -62,14 +69,20 @@ Payment Report Table
 | product\_id    | INT       | Reference to product\_id in Product Table |
 | source\_id     | INT       | Source identifier of payment              |
 | volume         | FLOAT     | Total payment volume                      |
+<details>
 
-Example
+<details>
+  <summary>Example</summary>
+  
 | report\_month | payment\_group | product\_id | source\_id | volume    |
 | ------------- | -------------- | ----------- | ---------- | --------- |
 | 2023-01       | payment        | 12          | 45         | 624110375 |
 | 2023-01       | payment        | 17          | 45         | 335715113 |
+<details>
 
 ##### Table 3: Transactions Table
+<details>
+  <summary>Transactions Table</summary>
 | Column Name     | Data Type | Description                         |
 | --------------- | --------- | ----------------------------------- |
 | transaction\_id | BIGINT    | Unique ID for each transaction      |
@@ -81,13 +94,16 @@ Example
 | receiver\_id    | FLOAT     | Receiver’s customer ID              |
 | extra\_info     | TEXT      | Additional metadata                 |
 | timeStamp       | BIGINT    | Unix timestamp of transaction       |
+<details>
 
-Example:
+<details>
+  <summary>Example:</summary>
 | transaction\_id | merchant\_id | volume | transType | transStatus | sender\_id | receiver\_id | timeStamp     |
 | --------------- | ------------ | ------ | --------- | ----------- | ---------- | ------------ | ------------- |
 | 3002692434      | 5            | 100000 | 24        | 1           | 10199794   | 199794       | 1682932054455 |
 | 3002692437      | 305          | 20000  | 2         | 1           | 14022211   | 14022211     | 1682932054912 |
-
+<details>
+  
 ## ⚒️ Main Process
 #### 3.1. Exploratory Data Analysis (EDA)  
 
