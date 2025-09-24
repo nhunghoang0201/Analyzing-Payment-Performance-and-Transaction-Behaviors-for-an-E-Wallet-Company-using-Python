@@ -51,6 +51,7 @@ transactions.csv → Transaction-level information (transType, merchant, amount,
 | category    | TEXT      | Product category (e.g., PXXXXXB)     |
 | team\_own   | TEXT      | The team responsible for the product |
 <details>
+  
 <details>
   <summary>Example:</summary>
   
