@@ -147,18 +147,20 @@ transactions.csv → Transaction-level information (transType, merchant, amount,
 
 #### ***3.3.1 Top 3 Products by Volume***
 **Purpose:** Identify which products generate the highest payment volume.  This helps prioritize operational focus, marketing resources
+
 **Code**:
 <img width="911" height="148" alt="image" src="https://github.com/user-attachments/assets/8ec60406-dbad-4cbc-b595-36e840596da0" />
 
 **Answer:**  Top 3 Products is 1976, 429, 372.
+
 **Insight:**  
 - We found that only **3 products** (IDs: 1976, 429, 372) make up the **majority of total payment volume**.
   
 - In other words, almost all the money comes from just a few products.
   
-- 👉 Why this matters: If one of these products has a problem (system error, fraud, downtime), the company could lose a lot of money quickly.
+- 👉 **Why this matters**: If one of these products has a problem (system error, fraud, downtime), the company could lose a lot of money quickly.
    
-- ✅ What to do: Keep these products running smoothly, monitor them daily, and maybe create backup plans.
+- ✅ **What to do**: Keep these products running smoothly, monitor them daily, and maybe create backup plans.
 
 ---
 
@@ -169,6 +171,7 @@ transactions.csv → Transaction-level information (transType, merchant, amount,
 <img width="751" height="198" alt="image" src="https://github.com/user-attachments/assets/e59bf5be-8ed9-4251-a222-a31b42bbe7b2" />
 
 **Answer:** As all product is own by only one team => No violations  
+
 **Insight:** All products comply, ensuring accountability and easy tracking.  
 
 ---
@@ -185,8 +188,8 @@ transactions.csv → Transaction-level information (transType, merchant, amount,
 
 **Insight:**   
 - Since Q2 2023, the **APS team has the lowest performance** (they generate the least payment volume).  
-- 👉 Why this matters: This could mean their products are not popular, not marketed well, or they have internal issues.  
-- ✅ What to do: Review APS team’s products. Maybe give them more resources, training, or marketing support.  
+- 👉 **Why this matters**: This could mean their products are not popular, not marketed well, or they have internal issues.  
+- ✅ **What to do**: Review APS team’s products. Maybe give them more resources, training, or marketing support.  
 
 ---
 
@@ -200,8 +203,8 @@ transactions.csv → Transaction-level information (transType, merchant, amount,
 
 **Insight:** 
 - We saw that **source_id = 38** is responsible for most of the **refund transactions**.  
-- 👉 Why this matters: Too many refunds can mean fraud, unhappy customers, or system bugs. If we don’t fix it, trust in the wallet can drop.  
-- ✅ What to do: Investigate source 38 in detail. Check if it’s a risky merchant, a system issue, or a process problem.  
+- 👉 **Why this matters**: Too many refunds can mean fraud, unhappy customers, or system bugs. If we don’t fix it, trust in the wallet can drop.  
+- ✅ **What to do**: Investigate source 38 in detail. Check if it’s a risky merchant, a system issue, or a process problem.  
 
 
 ---
