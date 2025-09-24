@@ -1,4 +1,4 @@
-# 📊 Analyzing Payment Performance and Transaction Behaviors for an E-Wallet Company using Python  
+<img width="1072" height="722" alt="image" src="https://github.com/user-attachments/assets/822ed0dd-e49a-4566-94bb-c767d748f5ff" /># 📊 Analyzing Payment Performance and Transaction Behaviors for an E-Wallet Company using Python  
 ![Image](https://github.com/user-attachments/assets/0d4a7fd2-2793-4939-b0ec-40ddf311121f)
 
 Author: Hoang Thi Hong Nhung 
@@ -14,16 +14,18 @@ Tools Used: Python
 ---
 
 ## 📌 Background & Overview  
-#### 🎯 Objective
-Analyze e-wallet payment & transaction datasets to answer:
+#### 🎯 Situation
 
-✔️ What is the current situation of payment volume and transactions?
+The e-wallet company is operating multiple products and transaction types: **Bank Transfer**, **Withdraw Money**, **Top Up Money**, **Payment Transaction**, **Transfer Money**, and **Split Bill**.
 
-✔️ Which products/teams perform best and worst?
+#### 📂 Complication / Business Questions
+The current status of payments and transactions is unclear, making it difficult to evaluate performance and support decision-making:
 
-✔️ How are refunds distributed by sources?
+✔️ **Product/Team**: Which products contribute the most? Which team performs the weakest? Are there any ownership violations?
 
-✔️ How do different transaction types contribute to customer behavior?
+✔️ **Refund**: Which source_id contributes the most to refunds?
+
+✔️ **Transaction**: Is the data clean? Which transaction types are most common, and what are their volumes and user counts?
 
 #### 👤 Who is this project for?
 
@@ -148,27 +150,123 @@ transactions.csv → Transaction-level information (transType, merchant, amount,
 | 3.3.5 | How to **classify transaction types** based on `transType` and `merchant_id`? | Standardize transaction types for downstream analysis | Rules:<br>- transType=2 & merchant_id=1205 → Bank Transfer Transaction<br>- transType=2 & merchant_id=2260 → Withdraw Money Transaction<br>- transType=2 & merchant_id=2270 → Top Up Money Transaction<br>- transType=2 & others → Payment Transaction<br>- transType=8 & merchant_id=2250 → Transfer Money Transaction<br>- transType=8 & others → Split Bill Transaction<br>- Remaining → Invalid | Classification enables aggregation by type, facilitating analysis of customer behavior and operational performance. |
 | 3.3.6 | For each transaction type (excluding invalids), what are **total transactions, volume, senders, and receivers**? | Measure activity and revenue contribution per transaction type | **Bank Transfer Transaction:** 14,004 tx, 10,061,351,762 volume, 9,271 senders/receivers<br>**Payment Transaction:** 260,335 tx, 34,385,618,147 volume, 113,298 receivers, 102,995 senders<br>**Split Bill Transaction:** 1,376 tx, 4,901,464 volume, 572 receivers, 1,323 senders<br>**Top Up Money Transaction:** 290,498 tx, 108,605,618,829 volume, 110,409 senders/receivers<br>**Transfer Money Transaction:** 341,173 tx, 37,032,880,492 volume, 34,585 receivers, 39,021 senders<br>**Withdraw Money Transaction:** 33,725 tx, 23,418,181,420 volume, 24,814 senders/receivers | Top contributors in volume are **Top Up Money** and **Payment Transactions**. Split Bill transactions are few but may indicate niche usage. Bank Transfer and Withdraw are smaller in volume but may involve higher-value transfers. Understanding distribution helps product strategy and operational focus. |
 
+#### 3.3.1 Top 3 Products by Volume
+**Purpose:** Identify which products generate the highest payment volume.  This helps prioritize operational focus, marketing resources
+**Code**:
+<img width="911" height="148" alt="image" src="https://github.com/user-attachments/assets/8ec60406-dbad-4cbc-b595-36e840596da0" />
+
+**Answer:**  Top 3 Products is 1976, 429, 372.
+**Insight:**  
+- We found that only **3 products** (IDs: 1976, 429, 372) make up the **majority of total payment volume**.
+  
+- In other words, almost all the money comes from just a few products.
+  
+- 👉 Why this matters: If one of these products has a problem (system error, fraud, downtime), the company could lose a lot of money quickly.
+   
+- ✅ What to do: Keep these products running smoothly, monitor them daily, and maybe create backup plans.
+
+---
+
+#### 3.3.2 Ownership Rule Check
+**Purpose:** Verify that each product is owned by exactly one team. This ensures accountability, avoids duplicated responsibility, and makes performance evaluation transparent.
+
+**Code:** 
+<img width="751" height="198" alt="image" src="https://github.com/user-attachments/assets/e59bf5be-8ed9-4251-a222-a31b42bbe7b2" />
+
+**Answer:** As all product is own by only one team => No violations  
+**Insight:** All products comply, ensuring accountability and easy tracking.  
+
+---
+
+#### 3.3.3 Lowest Performing Team
+**Purpose:** Detect which team contributes the least to transaction volume. This highlights where management may need to allocate support, training, or process improvements.
+
+**Code:** 
+<img width="1405" height="250" alt="image" src="https://github.com/user-attachments/assets/f612104f-a377-40db-bcdd-41400471a317" />
+
+**Answer:**  
+- Team: APS  
+- Lowest category contribution: 25,232,438  
+
+**Insight:**   
+- Since Q2 2023, the **APS team has the lowest performance** (they generate the least payment volume).  
+- 👉 Why this matters: This could mean their products are not popular, not marketed well, or they have internal issues.  
+- ✅ What to do: Review APS team’s products. Maybe give them more resources, training, or marketing support.  
+
+---
+
+#### 3.3.4 Refund Analysis
+**Purpose:** Understand refund sources for risk/fraud monitoring  
+
+**Code:**
+<img width="869" height="201" alt="image" src="https://github.com/user-attachments/assets/9bcc1f2b-6777-416c-98cf-cb08a7a5dadc" />
+
+**Answer:** Source_id = 38  
+
+**Insight:** 
+- We saw that **source_id = 38** is responsible for most of the **refund transactions**.  
+- 👉 Why this matters: Too many refunds can mean fraud, unhappy customers, or system bugs. If we don’t fix it, trust in the wallet can drop.  
+- ✅ What to do: Investigate source 38 in detail. Check if it’s a risky merchant, a system issue, or a process problem.  
+
+
+---
+
+#### 3.3.5 Transaction Classification
+**Rules:**  
+- `transType=2 & merchant_id=1205` → Bank Transfer  
+- `transType=2 & merchant_id=2260` → Withdraw Money  
+- `transType=2 & merchant_id=2270` → Top Up Money  
+- `transType=2 & others` → Payment Transaction  
+- `transType=8 & merchant_id=2250` → Transfer Money  
+- `transType=8 & others` → Split Bill  
+- Else → Invalid
+- 
+**Purpose:** Standardize transaction types. This allows for consistent reporting, easier aggregation, and better understanding of user behaviors.
+  
+**Code:**
+<img width="1072" height="722" alt="image" src="https://github.com/user-attachments/assets/cd8a9624-5481-4518-9622-290e9bf1d001" />
+
+**Insight:** 
+- We created rules to classify each transaction into categories: **Top Up, Payment, Withdraw, Bank Transfer, Transfer Money, Split Bill, or Invalid**.  
+- 👉 Why this matters: Before, it was messy and hard to analyze. Now we can group and compare transaction types easily.  
+- ✅ What to do: Automate these rules so every new transaction is classified correctly in real time.  
+
+
+---
+
+#### 3.3.6 Transaction Type Summary
+**Purpose:** Measure how different transaction types contribute to overall system usage  
+
+**Code**: 
+<img width="1163" height="401" alt="image" src="https://github.com/user-attachments/assets/ac843c32-dbd4-41ab-90d4-f3eea045bb65" />
+
+**Insight:**  
+- **Top Up Money** and **Payments** are the biggest activities → these are the **core services** people use daily.  
+- **Transfer Money** is also strong → shows people send money to each other often.  
+- **Split Bill** is small → not many people use it, but it’s a **unique social feature** that could grow.  
+- **Withdraw / Bank Transfer** are smaller in number, but they usually involve **bigger amounts of money**.  
+
+👉 Why this matters:  
+- The company’s strength is in **Top Up + Payment** → focus on growing these.  
+- **Transfer** shows trust in the wallet for P2P.  
+- **Split Bill** could be a niche feature to promote.  
+- **Withdraw / Bank Transfer** affect liquidity, so they need careful monitoring.  
 
 ## 🎯 Conclusion
 This analysis of e-wallet payments and transactions provides the following key insights:
 
-- **Top-performing products:** A small number of products contribute the majority of payment volume. Monitoring these key products ensures efficient resource allocation and focus.
+### Top Products Drive Most Value
+## ✅ The Big Picture
+- The wallet makes most of its money from a **few key products and services**.  
+- Ownership is well-structured (good), but one team (**APS**) is falling behind (bad).  
+- Refunds are heavily concentrated in **one source (38)**, which could be a risk.  
+- Customers mainly use the wallet for **Top Up and Payments**, but also use it to **transfer money** and sometimes **split bills**.  
 
-- **Team performance:** All products comply with the “1 product → 1 team” rule. The APS team shows the lowest performance since Q2 2023, with one category contributing least, highlighting areas for operational improvement.
-
-- **Refunds:** Source_id 38 dominates refund transactions, indicating a potential area for operational attention or risk management.
-
-- **Transaction behavior:**  
-  - **Top Up Money** and **Payment transactions** account for the largest volumes.  
-  - **Bank Transfer, Withdraw, and Split Bill transactions** are smaller in volume but may involve high-value or niche activity.  
-  - Classifying transactions by type enables better understanding of customer behavior and team performance.
-
-**Overall**, combining payment volume analysis, team performance assessment, and transaction-type classification provides actionable insights for:  
-
-1. Identifying underperforming teams and product categories  
-2. Vendor/product strategy optimization  
-3. Refund and fraud risk monitoring  
-4. Enhancing the overall customer transaction experience
+👉 To improve the business:  
+1. **Protect the top products** – keep them running perfectly.  
+2. **Fix refund issues** – start with source 38.  
+3. **Support APS team** – help them improve their performance.  
+4. **Grow usage** – focus on core services and test growth ideas for Split Bill.  
 
 
 
