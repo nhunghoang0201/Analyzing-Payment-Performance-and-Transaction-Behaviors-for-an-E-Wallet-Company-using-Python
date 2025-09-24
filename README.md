@@ -103,7 +103,7 @@ transactions.csv → Transaction-level information (transType, merchant, amount,
 </details>
 
 <details>
-  <summary>Example:</summary>
+  <summary>Example</summary>
   
 | transaction\_id | merchant\_id | volume | transType | transStatus | sender\_id | receiver\_id | timeStamp     |
 | --------------- | ------------ | ------ | --------- | ----------- | ---------- | ------------ | ------------- |
