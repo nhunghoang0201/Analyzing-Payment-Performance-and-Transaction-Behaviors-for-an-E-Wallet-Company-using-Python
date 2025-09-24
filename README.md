@@ -51,7 +51,7 @@ transactions.csv → Transaction-level information (transType, merchant, amount,
 | product\_id | INT       | Unique identifier for each product   |
 | category    | TEXT      | Product category (e.g., PXXXXXB)     |
 | team\_own   | TEXT      | The team responsible for the product |
-<details>
+</details>
   
 <details>
   <summary>Example:</summary>
@@ -61,7 +61,7 @@ transactions.csv → Transaction-level information (transType, merchant, amount,
 | 17          | PXXXXXB  | ASD       |
 | 18          | PXXXXXB  | ASD       |
 | 20          | PXXXXXB  | ASD       |
-<details>
+</details>
   
 ##### Table 2: Payment Report Table
 <details>
@@ -74,7 +74,7 @@ transactions.csv → Transaction-level information (transType, merchant, amount,
 | product\_id    | INT       | Reference to product\_id in Product Table |
 | source\_id     | INT       | Source identifier of payment              |
 | volume         | FLOAT     | Total payment volume                      |
-<details>
+</details>
 
 <details>
   <summary>Example</summary>
@@ -83,7 +83,7 @@ transactions.csv → Transaction-level information (transType, merchant, amount,
 | ------------- | -------------- | ----------- | ---------- | --------- |
 | 2023-01       | payment        | 12          | 45         | 624110375 |
 | 2023-01       | payment        | 17          | 45         | 335715113 |
-<details>
+</details>
 
 ##### Table 3: Transactions Table
 <details>
@@ -100,7 +100,7 @@ transactions.csv → Transaction-level information (transType, merchant, amount,
 | receiver\_id    | FLOAT     | Receiver’s customer ID              |
 | extra\_info     | TEXT      | Additional metadata                 |
 | timeStamp       | BIGINT    | Unix timestamp of transaction       |
-<details>
+</details>
 
 <details>
   <summary>Example:</summary>
@@ -109,7 +109,7 @@ transactions.csv → Transaction-level information (transType, merchant, amount,
 | --------------- | ------------ | ------ | --------- | ----------- | ---------- | ------------ | ------------- |
 | 3002692434      | 5            | 100000 | 24        | 1           | 10199794   | 199794       | 1682932054455 |
 | 3002692437      | 305          | 20000  | 2         | 1           | 14022211   | 14022211     | 1682932054912 |
-<details>
+</details>
   
 ## ⚒️ Main Process
 #### 3.1. Exploratory Data Analysis (EDA)  
