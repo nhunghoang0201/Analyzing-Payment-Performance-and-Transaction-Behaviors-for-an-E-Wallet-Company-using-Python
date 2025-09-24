@@ -149,6 +149,7 @@ The current status of payments and transactions is unclear, making it difficult 
 **Purpose:** Identify which products generate the highest payment volume.  This helps prioritize operational focus, marketing resources
 
 **Code**:
+
 <img width="911" height="148" alt="image" src="https://github.com/user-attachments/assets/8ec60406-dbad-4cbc-b595-36e840596da0" />
 
 **Answer:**  Top 3 Products is 1976, 429, 372.
@@ -168,6 +169,7 @@ The current status of payments and transactions is unclear, making it difficult 
 **Purpose:** Verify that each product is owned by exactly one team. This ensures accountability, avoids duplicated responsibility, and makes performance evaluation transparent.
 
 **Code:** 
+
 <img width="751" height="198" alt="image" src="https://github.com/user-attachments/assets/e59bf5be-8ed9-4251-a222-a31b42bbe7b2" />
 
 **Answer:** As all product is own by only one team => No violations  
@@ -180,6 +182,7 @@ The current status of payments and transactions is unclear, making it difficult 
 **Purpose:** Detect which team contributes the least to transaction volume. This highlights where management may need to allocate support, training, or process improvements.
 
 **Code:** 
+
 <img width="1405" height="250" alt="image" src="https://github.com/user-attachments/assets/f612104f-a377-40db-bcdd-41400471a317" />
 
 **Answer:**  
@@ -197,6 +200,7 @@ The current status of payments and transactions is unclear, making it difficult 
 **Purpose:** Understand refund sources for risk/fraud monitoring  
 
 **Code:**
+
 <img width="869" height="201" alt="image" src="https://github.com/user-attachments/assets/9bcc1f2b-6777-416c-98cf-cb08a7a5dadc" />
 
 **Answer:** Source_id = 38  
