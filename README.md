@@ -38,7 +38,9 @@ The current status of payments and transactions is unclear, making it difficult 
 ## 📂 Dataset Description & Data Structure  
 #### 📌 Table Used  
 payment_report.csv → Monthly payment volume of products
+
 product.csv → Product metadata (team, category, ownership)
+
 transactions.csv → Transaction-level information (transType, merchant, amount, sender, receiver)
 
 #### Data definition & example
