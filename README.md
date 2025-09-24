@@ -117,33 +117,29 @@ transactions.csv → Transaction-level information (transType, merchant, amount,
 #### 3.2. Data Cleaning & Preprocessing
 **Payment_enriched**
 
-*Missing data:*
-- category: 22 null values => Change to others
-- team_own: 22 null values => Change to others
+| Findings                                             | Solution                                      | Result / Data Readiness                                                |
+|------------------------------------------------------|-----------------------------------------------|------------------------------------------------------------------------|
+| Missing values: `category` (22 nulls)                | Fill nulls with "others"                      | ✅ All rows now have valid category values                             |
+| Missing values: `team_own` (22 nulls)                | Fill nulls with "others"                      | ✅ All rows now have valid team ownership values                       |
+| Wrong data type: `report_month` (object)             | Convert to datetime                           | ✅ Converted → ready for time-series analysis                          |
+| Wrong data type: `source_id` (int64)                 | Convert to string                             | ✅ Converted → IDs consistent, treated as categorical                  |
+| Wrong data type: `product_id` (int64)                | Convert to string                             | ✅ Converted → IDs consistent, treated as categorical                  |
 
-*incorrect data types*
-- report_month (type: object) => Action: Change to datetime
-- source_id (type: int64) => Action: Change to strings
-- product_id (type: int64) => Action: Change to strings
-
+---
 **Transactions**
-
-*Duplicate data*
-- transaction_id => Action: Drop duplicate data
-
-*Missing data:*
-- sender_id: 49059 null values => No Action as senders could be already deleted in system
-- receiver_id: 164795 null values => Action: Delete rows with receiver_id null as receiver information could be
-- extra_info: 1317907 null values => No Action
-
-*Incorrect data types*
-- transaction_id (type: int64) => Action: Change to strings
-- merchant_id (type: int64) => Action: Change to strings
-- transType (type: int64) => Action: Change to strings
-- transStatus (type: int64) => Action: Change to strings
-- sender_id (type: float64) => Action: Change to strings
-- receiver_id (type: float64) => Action: Change to strings
-- timestamp (type: object) => Action: Change to datetime
+| Findings                                             | Solution                                      | Result / Data Readiness                                                |
+|------------------------------------------------------|-----------------------------------------------|------------------------------------------------------------------------|
+| Duplicate rows in `transaction_id`                   | Drop duplicate rows                           | ✅ Ensures each transaction is unique                                  |
+| Missing values: `sender_id` (49,059 nulls)           | No Action → senders may have been deleted     | ⚠️ Nulls remain but acceptable, will not block transaction analysis   |
+| Missing values: `receiver_id` (164,795 nulls)        | Delete rows with null `receiver_id`           | ✅ All remaining rows have valid receiver information                  |
+| Missing values: `extra_info` (1,317,907 nulls)       | No Action → considered non-critical metadata  | ⚠️ Column incomplete but not blocking payment/transaction analysis     |
+| Wrong data type: `transaction_id` (int64)            | Convert to string                             | ✅ Converted → IDs consistent as categorical                           |
+| Wrong data type: `merchant_id` (int64)               | Convert to string                             | ✅ Converted → IDs consistent as categorical                           |
+| Wrong data type: `transType` (int64)                 | Convert to string                             | ✅ Converted → avoids misinterpretation in classification              |
+| Wrong data type: `transStatus` (int64)               | Convert to string                             | ✅ Converted → ready for label-based analysis                          |
+| Wrong data type: `sender_id` (float64)               | Convert to string                             | ✅ Converted → IDs consistent, avoids decimal formatting               |
+| Wrong data type: `receiver_id` (float64)             | Convert to string                             | ✅ Converted → IDs consistent, avoids decimal formatting               |
+| Wrong data type: `timestamp` (object)                | Convert to datetime                           | ✅ Converted → enables time-series and trend analysis                  |
 
 #### 3️.3. Data wrangling
 | # | Business Question | Purpose | Answer | Analysis / Insight |
