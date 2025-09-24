@@ -142,16 +142,8 @@ transactions.csv → Transaction-level information (transType, merchant, amount,
 | Wrong data type: `timestamp` (object)                | Convert to datetime                           | ✅ Converted → enables time-series and trend analysis                  |
 
 #### 3️.3. Data wrangling
-| # | Business Question | Purpose | Answer | Analysis / Insight |
-|---|---------|---------|--------|------------------|
-| 3.3.1 | Which **3 product_ids** have the highest payment volume? | Identify top-performing products by revenue | 1976: 61,797,583,647<br>429: 14,667,676,567<br>372: 13,713,658,515 | These products generate the majority of payment volume. Focus on their operational efficiency and monitoring. |
-| 3.3.2 | Are there any products that are **owned by multiple teams**? | Ensure **1 product → 1 team** rule is maintained | No | All products comply with ownership rules, ensuring accountability and simplifying performance tracking. |
-| 3.3.3 | Which **team has the lowest performance** since Q2 2023? Which category contributes least to that team? | Identify underperforming teams and weak product categories for targeted improvement | Team: APS<br>Lowest contributing category: 25,232,438 | APS team may need operational support or process improvement. Focus on the low-contributing category to boost overall performance. |
-| 3.3.4 | Among **refund transactions**, which **source_id** contributes the most? | Understand refund sources for risk/fraud monitoring | Source_id: 38 | This source accounts for the highest refund volume. Recommend investigating patterns and potential operational bottlenecks. |
-| 3.3.5 | How to **classify transaction types** based on `transType` and `merchant_id`? | Standardize transaction types for downstream analysis | Rules:<br>- transType=2 & merchant_id=1205 → Bank Transfer Transaction<br>- transType=2 & merchant_id=2260 → Withdraw Money Transaction<br>- transType=2 & merchant_id=2270 → Top Up Money Transaction<br>- transType=2 & others → Payment Transaction<br>- transType=8 & merchant_id=2250 → Transfer Money Transaction<br>- transType=8 & others → Split Bill Transaction<br>- Remaining → Invalid | Classification enables aggregation by type, facilitating analysis of customer behavior and operational performance. |
-| 3.3.6 | For each transaction type (excluding invalids), what are **total transactions, volume, senders, and receivers**? | Measure activity and revenue contribution per transaction type | **Bank Transfer Transaction:** 14,004 tx, 10,061,351,762 volume, 9,271 senders/receivers<br>**Payment Transaction:** 260,335 tx, 34,385,618,147 volume, 113,298 receivers, 102,995 senders<br>**Split Bill Transaction:** 1,376 tx, 4,901,464 volume, 572 receivers, 1,323 senders<br>**Top Up Money Transaction:** 290,498 tx, 108,605,618,829 volume, 110,409 senders/receivers<br>**Transfer Money Transaction:** 341,173 tx, 37,032,880,492 volume, 34,585 receivers, 39,021 senders<br>**Withdraw Money Transaction:** 33,725 tx, 23,418,181,420 volume, 24,814 senders/receivers | Top contributors in volume are **Top Up Money** and **Payment Transactions**. Split Bill transactions are few but may indicate niche usage. Bank Transfer and Withdraw are smaller in volume but may involve higher-value transfers. Understanding distribution helps product strategy and operational focus. |
 
-#### 3.3.1 Top 3 Products by Volume
+#### ***3.3.1 Top 3 Products by Volume***
 **Purpose:** Identify which products generate the highest payment volume.  This helps prioritize operational focus, marketing resources
 **Code**:
 <img width="911" height="148" alt="image" src="https://github.com/user-attachments/assets/8ec60406-dbad-4cbc-b595-36e840596da0" />
@@ -168,7 +160,7 @@ transactions.csv → Transaction-level information (transType, merchant, amount,
 
 ---
 
-#### 3.3.2 Ownership Rule Check
+#### ***3.3.2 Ownership Rule Check***
 **Purpose:** Verify that each product is owned by exactly one team. This ensures accountability, avoids duplicated responsibility, and makes performance evaluation transparent.
 
 **Code:** 
@@ -179,7 +171,7 @@ transactions.csv → Transaction-level information (transType, merchant, amount,
 
 ---
 
-#### 3.3.3 Lowest Performing Team
+#### ***3.3.3 Lowest Performing Team***
 **Purpose:** Detect which team contributes the least to transaction volume. This highlights where management may need to allocate support, training, or process improvements.
 
 **Code:** 
@@ -196,7 +188,7 @@ transactions.csv → Transaction-level information (transType, merchant, amount,
 
 ---
 
-#### 3.3.4 Refund Analysis
+#### ***3.3.4 Refund Analysis***
 **Purpose:** Understand refund sources for risk/fraud monitoring  
 
 **Code:**
@@ -212,7 +204,7 @@ transactions.csv → Transaction-level information (transType, merchant, amount,
 
 ---
 
-#### 3.3.5 Transaction Classification
+#### ***3.3.5 Transaction Classification***
 **Rules:**  
 - `transType=2 & merchant_id=1205` → Bank Transfer  
 - `transType=2 & merchant_id=2260` → Withdraw Money  
@@ -235,7 +227,7 @@ transactions.csv → Transaction-level information (transType, merchant, amount,
 
 ---
 
-#### 3.3.6 Transaction Type Summary
+#### ***3.3.6 Transaction Type Summary***
 **Purpose:** Measure how different transaction types contribute to overall system usage  
 
 **Code**: 
