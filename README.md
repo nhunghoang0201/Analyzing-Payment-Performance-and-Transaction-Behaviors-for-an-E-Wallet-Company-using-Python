@@ -56,7 +56,7 @@ transactions.csv → Transaction-level information (transType, merchant, amount,
 </details>
   
 <details>
-  <summary>Example:</summary>
+  <summary>Example</summary>
   
 | product\_id | category | team\_own |
 | ----------- | -------- | --------- |
