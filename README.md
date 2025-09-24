@@ -45,6 +45,7 @@ transactions.csv → Transaction-level information (transType, merchant, amount,
 ##### Table 1: Payment_report
 <details>
   <summary>Payment_report</summary>
+  
 | Column Name | Data Type | Description                          |
 | ----------- | --------- | ------------------------------------ |
 | product\_id | INT       | Unique identifier for each product   |
@@ -65,6 +66,7 @@ transactions.csv → Transaction-level information (transType, merchant, amount,
 ##### Table 2: Payment Report Table
 <details>
   <summary>Payment Report Table</summary>
+  
 | Column Name    | Data Type | Description                               |
 | -------------- | --------- | ----------------------------------------- |
 | report\_month  | DATE      | Month of report (YYYY-MM)                 |
@@ -86,6 +88,7 @@ transactions.csv → Transaction-level information (transType, merchant, amount,
 ##### Table 3: Transactions Table
 <details>
   <summary>Transactions Table</summary>
+  
 | Column Name     | Data Type | Description                         |
 | --------------- | --------- | ----------------------------------- |
 | transaction\_id | BIGINT    | Unique ID for each transaction      |
@@ -101,6 +104,7 @@ transactions.csv → Transaction-level information (transType, merchant, amount,
 
 <details>
   <summary>Example:</summary>
+  
 | transaction\_id | merchant\_id | volume | transType | transStatus | sender\_id | receiver\_id | timeStamp     |
 | --------------- | ------------ | ------ | --------- | ----------- | ---------- | ------------ | ------------- |
 | 3002692434      | 5            | 100000 | 24        | 1           | 10199794   | 199794       | 1682932054455 |
